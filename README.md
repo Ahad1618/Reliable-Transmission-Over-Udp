@@ -22,47 +22,11 @@ This project implements a **Reliable UDP Protocol (RUDP)** in Python, enhancing 
 
 ## Files in the Project
 
-- `rudp_client.py`: RUDP client implementation
-- `rudp_server.py`: RUDP server implementation
-- `rudp_file_transfer.py`: Utility for transferring files using RUDP
-- `rudp_test.py`: Test script with simulated network conditions
 - `rudp_simulation.py`: Visual simulation of the RUDP protocol in action
 
-## Usage
-
-### Basic Client-Server Communication
-
-**Start the RUDP server:**
-```bash
-python rudp_server.py --host 0.0.0.0 --port 5000
 ```
 
-**Send a message with the RUDP client:**
-```bash
-python rudp_client.py --server 127.0.0.1 --port 5000 --message "Hello, RUDP!"
-```
-
-### File Transfer
-
-**Start the file transfer server:**
-```bash
-python rudp_file_transfer.py receive --host 0.0.0.0 --port 5000 --output received_files
-```
-
-**Send a file:**
-```bash
-python rudp_file_transfer.py send path/to/your/file.txt --server 127.0.0.1 --port 5000
-```
-
-### Testing with Network Simulation
-
-The `rudp_test.py` script provides a way to test the protocol under simulated network conditions with packet loss and corruption.
-
-**Start the test server:**
-```bash
-python rudp_test.py server --loss-rate 0.2 --corruption-rate 0.1
-```
-
+#usage
 **Send a test message:**
 ```bash
 python rudp_test.py client --message "This is a test message" --loss-rate 0.2 --corruption-rate 0.1
@@ -93,44 +57,6 @@ You can adjust the network conditions using these parameters:
 
 ## Command-line Arguments
 
-### RUDP Server
-- `--host`: Host address to bind to (default: 0.0.0.0)
-- `--port`: Port to bind to (default: 5000)
-
-### RUDP Client
-- `--server`: Server IP address (default: 127.0.0.1)
-- `--port`: Server port (default: 5000)
-- `--message`: Message to send (default: "Hello, RUDP!")
-
-### File Transfer
-- **Send mode**:
-  - `file`: Path to the file to send
-  - `--server`: Server IP address (default: 127.0.0.1)
-  - `--port`: Server port (default: 5000)
-  - `--timeout`: Timeout in seconds (default: 1.0)
-  - `--retries`: Maximum retries (default: 5)
-  
-- **Receive mode**:
-  - `--host`: Host address to bind to (default: 0.0.0.0)
-  - `--port`: Port to bind to (default: 5000)
-  - `--output`: Output directory (default: "received_files")
-
-### Test Script
-- **Server mode**:
-  - `--host`: Host address to bind to (default: 0.0.0.0)
-  - `--port`: Port to bind to (default: 5000)
-  - `--duration`: Server runtime in seconds (default: 30)
-  - `--loss-rate`: Packet loss rate (default: 0.2)
-  - `--corruption-rate`: Packet corruption rate (default: 0.1)
-  
-- **Client mode**:
-  - `--server`: Server IP address (default: 127.0.0.1)
-  - `--port`: Server port (default: 5000)
-  - `--timeout`: Timeout in seconds (default: 1.0)
-  - `--retries`: Maximum retries (default: 5)
-  - `--message`: Message to send
-  - `--loss-rate`: Packet loss rate (default: 0.2)
-  - `--corruption-rate`: Packet corruption rate (default: 0.1)
 
 ## Implementation Details
 
